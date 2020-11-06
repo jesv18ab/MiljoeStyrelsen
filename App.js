@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
-//Endpoint framiljøstyrelsen
+//Endpoint fra miljøstyrelsen
 const url = 'https://arpo-prod-api-app.azurewebsites.net/taxons/?searchText=&take=15&skip=0&notMatched=false&isDkTaxon=true&isDefaultTaxon=true&isMissingPhoto=false&speciesGroups=Fugle';
 
 export default class App extends React.Component {
