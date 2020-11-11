@@ -4,6 +4,9 @@ import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 //Endpoint fra miljøstyrelsen
 const url = 'https://arpo-prod-api-app.azurewebsites.net/taxons/?searchText=&take=15&skip=0&notMatched=false&isDkTaxon=true&isDefaultTaxon=true&isMissingPhoto=false&speciesGroups=Fugle';
 
+// URL til lokationsdata om agerhøne
+const url2 = 'https://arpo-prod-api-app.azurewebsites.net/records/?searchText=&take=200&zoomLevel=6.505000000000001&mapBounds=6.311220033140885&mapBounds=53.27908359032372&mapBounds=13.959950596326209&mapBounds=58.54520338469064&speciesGroups=Fugle&taxonIds=966eddf8-f785-ea11-aa77-501ac539d1ea&searchMode=3&includeDescendantTaxons=true&isDeleted=&hasMedia=false&excludeSaughtButNotFound=true&includeSpeciesGroupFacet=false&url=';
+
 export default class App extends React.Component {
 //Oprettelse af tre tomme state arrays til at hente data fra endpointet
   state = {
@@ -23,8 +26,14 @@ export default class App extends React.Component {
     // Fetch metoden efterspørger data fra et url og gemmer resultatet i response-variablen
     let response = await fetch(url);
 
+    //Dette er parsing af lokationsdata om agerhøne, ikke integreret i render()
+    //let response2 = await fetch(url2);
+    //const result2 = await response2.json();
+    //console.log(result2);
+
     //Result variablen er resultatet af deserialisering af json data
     const result = await response.json();
+    console.log(result);
 
     //Oprettelse af to arraya til at gemme data
     var withImageUrl =[];
